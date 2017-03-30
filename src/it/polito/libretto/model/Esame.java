@@ -5,11 +5,14 @@ import java.time.LocalDate;
 /**
  * Oggetto semplice che contiene i dati relativi ad un singolo esame.
  * POJO (Plain Old Java Object)
- * dati privati (proprietà)
- * cotruttore
- * metodi get/set 
- * metodi di servizio (toString, equals, hashCode, [compareTo])
+ * - dati privati (proprietà)
+ * - cotruttore
+ * - metodi get/set 
+ * - metodi di servizio (toString, equals, hashCode, [compareTo])
  */
+
+//equals si basa su criterio di uguaglianza
+//compareTo si basa su un criterio di ordinamento
 
 public class Esame {
 
@@ -26,7 +29,7 @@ public class Esame {
 	/**
 	 * Nuovo esame, non ancora superato
 	 * 
-	 * @param codice codice dell'aesame
+	 * @param codice codice dell'esame
 	 * @param titolo denominazione del corso
 	 * @param docente cognome e nome del docente titolare
 	 */
@@ -36,6 +39,7 @@ public class Esame {
 		this.codice = codice;
 		this.titolo = titolo;
 		this.docente = docente;
+		//quando costruisco un oggetto Esame, questo è riferito ad un esame non ancora superato
 		this.superato=false;
 	}
 
@@ -108,7 +112,7 @@ public class Esame {
 
 	/**
 	 * @param voto the voto to set
-	 */
+	 */	
 	private void setVoto(int voto) {
 		this.voto = voto;
 	}
@@ -153,6 +157,11 @@ public class Esame {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
+	
+	//definisco metodo equals per stabilire un criterio di uguaglianza tra oggetti specifico
+	//per poter utilizzare metodo contains e indexOf su una lista
+	//in quanto l'equals predefinito a livello di Object confronta semplicemente l'indirizzo di memoria
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -185,6 +194,8 @@ public class Esame {
 			this.dataSuperamento=data;
 		}
 		else{
+			//già superato KO
+			//IllegalStateException eccezione di tipo runtime (chiamato metodo su oggetto il cui stato interno non permette di chiamare quel metodo) 
 			throw new IllegalStateException("Esame "+this.codice+" già superato");
 		}
 	}

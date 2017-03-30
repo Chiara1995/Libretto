@@ -13,11 +13,16 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			
+			//creazione oggetto esplicito senza utilizzare il metodo statico load() 
 			FXMLLoader loader=new FXMLLoader(getClass().getResource("Libretto.fxml"));
+			//invocazione del metodo "reale" sull'oggetto
 			BorderPane root = (BorderPane)loader.load();
 			
+			//chiedere al loader l'istanza dell'oggetto di tipo controller creato
 			LibrettoController controller=loader.getController();
+			//creazione modello
 			Model model=new Model();
+			//indicazione al controller del modello da utilizzare
 			controller.setModel(model);
 			
 			Scene scene = new Scene(root);

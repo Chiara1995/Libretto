@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="376.0" prefWidth="534.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.libretto.LibrettoController">
+<BorderPane xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.libretto.LibrettoController">
    <top>
       <Label text="Libretto Universitario" BorderPane.alignment="CENTER">
          <font>
@@ -21,7 +21,7 @@
       </Label>
    </top>
    <center>
-      <VBox prefHeight="313.0" prefWidth="307.0" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
             <GridPane hgap="10.0" vgap="10.0">
               <columnConstraints>
@@ -40,11 +40,11 @@
                         <Insets bottom="10.0" top="10.0" />
                      </GridPane.margin>
                   </TextField>
-                  <TextField fx:id="txtTitolo" prefHeight="31.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="txtTitolo" prefHeight="31.0" prefWidth="247.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></TextField>
-                  <TextField fx:id="txtCodice" prefHeight="31.0" prefWidth="117.0" GridPane.rowIndex="1">
+                  <TextField fx:id="txtCodice" prefHeight="31.0" prefWidth="88.0" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets bottom="10.0" right="10.0" top="10.0" />
                      </GridPane.margin>

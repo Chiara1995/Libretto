@@ -16,6 +16,11 @@ import javafx.scene.control.TextField;
 
 public class LibrettoController {
 	
+	//per far conoscere il Model al controller
+	//NON dev'essere il controller a creare il Model perchè potrebbero esserci tanti controller (tante finestre), ma il modello dev'essere uno solo
+	//controller dev'essere informato su quale Model utilizzare dall'esterno
+	//Model viene creato dal main
+	
 	Model model;
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -44,12 +49,19 @@ public class LibrettoController {
 
     @FXML
     void handleCerca(ActionEvent event) {
+    	//Recupera i dati dalla vista
     	String codice=txtCodice.getText();
+    	
+    	//Verifica la validità dei dati
     	if(codice.length()<5){
     		txtMessage.appendText("Codice corso non valido\n");
     		return;
     	}
+    	
+    	//Chiede al Model di effettuare l'operazione
     	Esame e=model.trovaEsame(codice);
+    	
+    	//Aggiorna la vista con il risultato dell'operazione
     	if(e==null){
     		txtMessage.appendText("Codice "+codice+" non trovato\n");
     	}
@@ -69,6 +81,7 @@ public class LibrettoController {
     	String docente=txtDocente.getText();
     	
     	//Verifica la validità dei dati
+    	//TextField vuota inizializzata a "", non ha senso verificare txt!=null
     	if(codice.length()<5 || titolo.length()==0 || docente.length()==0){
     		txtMessage.appendText("Dati esame insufficienti\n");
     		return;
